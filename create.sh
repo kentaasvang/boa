@@ -141,10 +141,10 @@ function create_main_module() {
 	echo "Creating $PROJECT_NAME.py... "
 	touch $PROJECT_ROOT/$PROJECT_NAME.py
 	echo "def main():
-	print(\"hello, $PROJECT_NAME\")
+    print(\"hello, $PROJECT_NAME\")
 
 if __name__ == \"__main__\":
-	main()
+    main()
 " > $PROJECT_ROOT/$PROJECT_NAME.py
 }
 
