@@ -126,6 +126,9 @@ try:
 except FileNotFoundError as file_not_found:
     print(f\"The file {filename} was not found. Make sure it's created\")
 " > $PROJECT_ROOT/settings.py
+
+	touch $PROJECT_ROOT/.env $PROJECT_ROOT/.env.dev
+	echo "NAME=$PROJECT_NAME" | tee $PROJECT_ROOT/.env $PROJECT_ROOT/.env.dev
 }
 
 create
