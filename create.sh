@@ -42,6 +42,7 @@ function create_project_files_and_folders() {
 	create_setup_py
 	create_settings_py
 	create_requirements_txt
+	create_main_module
 }
 
 function create_readme() {
@@ -129,12 +130,22 @@ except FileNotFoundError as file_not_found:
 " > $PROJECT_ROOT/settings.py
 
 	touch $PROJECT_ROOT/.env $PROJECT_ROOT/.env.dev
-	echo "NAME=$PROJECT_NAME" | tee $PROJECT_ROOT/.env $PROJECT_ROOT/.env.dev
 }
 
 function create_requirements_txt() {
 	echo "Creating requirements.txt... "
 	touch $PROJECT_ROOT/requirements.txt
+}
+
+function create_main_module() {
+	echo "Creating $PROJECT_NAME.py... "
+	touch $PROJECT_ROOT/$PROJECT_NAME.py
+	echo "def main():
+	print(\"hello, $PROJECT_NAME\")
+
+if __name__ == \"__main__\":
+	main()
+" > $PROJECT_ROOT/$PROJECT_NAME.py
 }
 
 create
