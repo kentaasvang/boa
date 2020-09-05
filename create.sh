@@ -43,6 +43,7 @@ function create_project_files_and_folders() {
 	create_settings_py
 	create_requirements_txt
 	create_main_module
+	create_tests_package
 }
 
 function create_readme() {
@@ -141,11 +142,49 @@ function create_main_module() {
 	echo "Creating $PROJECT_NAME.py... "
 	touch $PROJECT_ROOT/$PROJECT_NAME.py
 	echo "def main():
-    print(\"hello, $PROJECT_NAME\")
+    return \"hello, world\"
 
 if __name__ == \"__main__\":
     main()
 " > $PROJECT_ROOT/$PROJECT_NAME.py
 }
 
+function create_tests_package() {
+	echo "Creating test_packages... "
+	mkdir $PROJECT_ROOT/tests
+	touch $PROJECT_ROOT/tests/test_main.py
+	echo "import unittest
+import context
+import $PROJECT_NAME
+
+
+class Test$PROJECT_NAME(unittest.TestCase):
+    def test_$PROJECT_NAME(self):
+        self.assertEqual($PROJECT_NAME.main(), \"hello, world\")
+
+
+if __name__ == \"__main__\":
+    unittest.main()
+" > $PROJECT_ROOT/tests/test_main.py
+
+	touch $PROJECT_ROOT/tests/context.py
+	echo "\"\"\" Fixing the import path for importing modules from root \"\"\"
+
+import os, sys
+sys.path.insert(
+    0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+)" > $PROJECT_ROOT/tests/context.py 
+}
+
 create
+
+
+
+
+
+
+
+
+
+
+
