@@ -44,6 +44,7 @@ function create_project_files_and_folders() {
 	create_requirements_txt
 	create_main_module
 	create_tests_package
+	create_makefile
 }
 
 function create_readme() {
@@ -175,6 +176,14 @@ sys.path.insert(
     0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 )" > $PROJECT_ROOT/tests/context.py 
 }
+
+function create_makefile() {
+	touch $PROJECT_ROOT/Makefile
+	echo "
+test:
+	python3 tests/test_main.py" > $PROJECT_ROOT/Makefile	
+}
+
 
 create
 
