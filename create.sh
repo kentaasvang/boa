@@ -203,7 +203,7 @@ __pycache__/
 }
 
 function git_init_commit() {
-	git init && git commit -am "initial commit"
+	git init && git add . && git commit -m "initial commit"
 }
 
 create
