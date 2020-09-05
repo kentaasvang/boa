@@ -40,6 +40,7 @@ function create_project_files_and_folders() {
 	create_readme	
 	create_license
 	create_setup_py
+	create_settings_py
 }
 
 function create_readme() {
@@ -97,5 +98,34 @@ setup(
 " > $PROJECT_ROOT/setup.py
 }
 
+function create_settings_py() {
+	echo "Creating settings.py... "
+	touch $PROJECT_ROOT/settings.py
+	echo "import os
+
+DEVELOPMENT = True
+
+
+filename = \".env.dev\" if DEVELOPMENT else \".env\"
+
+# Read in key/values from environment file and load
+# them into the enrironment
+try:
+    with open(filename, \"r\") as file_handler:
+        arguments = []
+
+        # read lines in file and append to arguments-list
+        while argument := file_handler.readline():
+            arguments.append(argument.split(\"=\"))
+
+        # load key/values into environment so they can be reached with
+        # os.getenv()
+        for key, value in arguments:
+            os.environ[key] = value
+
+except FileNotFoundError as file_not_found:
+    print(f\"The file {filename} was not found. Make sure it's created\")
+" > $PROJECT_ROOT/settings.py
+}
 
 create
