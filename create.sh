@@ -206,7 +206,8 @@ __pycache__/
 }
 
 function git_init_commit() {
-	git init && git add . && git commit -m "initial commit"
+	echo "git init and commit!..."
+	git init --quiet && git add . && git commit --quiet -m "initial commit"
 }
 
 create
