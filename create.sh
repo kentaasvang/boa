@@ -41,6 +41,7 @@ function create_project_files_and_folders() {
 	create_license
 	create_setup_py
 	create_settings_py
+	create_requirements_txt
 }
 
 function create_readme() {
@@ -129,6 +130,11 @@ except FileNotFoundError as file_not_found:
 
 	touch $PROJECT_ROOT/.env $PROJECT_ROOT/.env.dev
 	echo "NAME=$PROJECT_NAME" | tee $PROJECT_ROOT/.env $PROJECT_ROOT/.env.dev
+}
+
+function create_requirements_txt() {
+	echo "Creating requirements.txt... "
+	touch $PROJECT_ROOT/requirements.txt
 }
 
 create
