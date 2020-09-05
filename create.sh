@@ -28,10 +28,6 @@ function create_project_folder() {
 	then
 		echo "Creating project-folder... "
 		mkdir $PROJECT_ROOT
-	else
-		printf "\n\n\n"
-		echo "PROJECT_ROOT already exists!"
-		exit 1
 	fi
 }
 
