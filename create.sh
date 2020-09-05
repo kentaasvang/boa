@@ -46,6 +46,8 @@ function create_project_files_and_folders() {
 	create_tests_package
 	create_makefile
 	create_gitignore
+
+	git_init_commit
 }
 
 function create_readme() {
@@ -194,7 +196,14 @@ function create_gitignore() {
 *.swo
 
 # python cache
-__pycache__/" > $PROJECT_ROOT/.gitignore
+__pycache__/
+
+# prod-files
+.env" > $PROJECT_ROOT/.gitignore
+}
+
+function git_init_commit() {
+	git init && git commit -am "initial commit"
 }
 
 create
