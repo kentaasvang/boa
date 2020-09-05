@@ -8,4 +8,4 @@ uninstall:
 
 test:
 	rm -rf ~/PythonProjects
-	create python project-name
+	create python project_name
