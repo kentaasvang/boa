@@ -36,6 +36,7 @@ function create_project_folder() {
 }
 
 function create_project_files_and_folders() {
+	cd $PROJECT_ROOT
 	echo "Creating project files and folders... "
 	create_readme	
 	create_license
@@ -48,6 +49,8 @@ function create_project_files_and_folders() {
 	create_gitignore
 
 	git_init_commit
+
+	echo "project setup finished"
 }
 
 function create_readme() {
