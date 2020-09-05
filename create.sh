@@ -45,6 +45,7 @@ function create_project_files_and_folders() {
 	create_main_module
 	create_tests_package
 	create_makefile
+	create_gitignore
 }
 
 function create_readme() {
@@ -178,12 +179,23 @@ sys.path.insert(
 }
 
 function create_makefile() {
+	echo "Creating Makefile... "
 	touch $PROJECT_ROOT/Makefile
 	echo "
 test:
 	python3 tests/test_main.py" > $PROJECT_ROOT/Makefile	
 }
 
+function create_gitignore() {
+	echo "Creating gitignore... "
+	touch $PROJECT_ROOT/.gitignore
+	echo "# vim files
+*.swp
+*.swo
+
+# python cache
+__pycache__/" > $PROJECT_ROOT/.gitignore
+}
 
 create
 
