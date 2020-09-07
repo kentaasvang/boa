@@ -9,7 +9,7 @@ The project-layout is inspired by [this document](https://docs.python-guide.org/
 
 
 ### Installing
-For now you have first setup the `$HOME/.my_binaries/bin` and export it to your $PATH. Then you clone the project from git and run `make install`
+For now you have to first setup the `$HOME/.my_binaries/bin`-directory and export it to your $PATH. Then you clone the project from git, cd into the cloned project and run `make install`
 
 
 ### Usage
