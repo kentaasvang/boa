@@ -21,6 +21,5 @@ This will create your project at `$HOME/PythonProjects/<project-name>/`
 
 
 ### Contributing
-Contributions are very welcome. Preferably you'll create and issue beforehand, but you can just submit PR's aswell. Every contribution will be credited in this README
-
+All contributions are very welcome, we are all here to learn. You can: try to install and run the project, write issues or report bugs, problems or just general criticism. Any feedback is also welcome! As well as requests or suggestions for improvements. You can also tackle some of the issues that are already registered and submit pull requests. All contributions no matter how small will be credited
 
