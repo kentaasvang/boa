@@ -1,5 +1,7 @@
+![issues](https://img.shields.io/github/issues/kentaasvang/python_create) ![pythonversion](https://img.shields.io/badge/python-%3E%3D%203.8-blue) ![platforms](https://img.shields.io/badge/platform-macos-lightgrey)
+
 # Create
-Create is a simple CLI for python that makes it easy to set up new python-projects. It aims to make a barebones project-layout with sensible defaults, without assuming any dependecies what-so-ever.
+Create is a simple CLI for python that makes it easy to set up new python-projects. It aims to make a clean project-layout with sensible defaults, without assuming any dependecies what-so-ever. 
 
 The CLI's API isn't decided yet. It will either stay as-is, or move towards the same API as the dotnet-CLI.
 
