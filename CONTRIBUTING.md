@@ -1,13 +1,14 @@
 # How to contribute to Create
 
 Thank you for considering contributing to Create!
-___
+
+
 ## Support questions
 
 All support questions can be created under the issue-tracker. 
 Just mark your issue with the **question** label
 
----
+
 ## Reporting issues
 
 Include the following information in your post:
@@ -21,7 +22,7 @@ Include the following information in your post:
 - List your Python version and working environment.
   I.e `using python3.8.1 and macOS Catalina 10.15.6`
 
----
+
 ## Submitting patches
 
 If there is not an open issue for what you want to submit, prefer
@@ -30,8 +31,8 @@ issue that doesn't have an open PR linked to it or a maintainer assigned
 to it. These show up in the sidebar. No need to ask if you can work on
 an issue that interests you!
 
-___
-### Setup development environment
+
+## Setup development environment
 
 [Fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) the repo,
 then [clone](https://docs.github.com/en/enterprise/2.13/user/articles/cloning-a-repository)
