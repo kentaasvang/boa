@@ -20,8 +20,6 @@ clean:
 	rm -rf dist/*
 
 run: build
-	./dist/create
+	@printf "\nProgram output: \n___________\n\n"
+	@./dist/create new somethingelse
 
-test:
-	rm -rf ~/PythonProjects
-	create python project_name
