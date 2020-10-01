@@ -25,9 +25,5 @@ All contributions are very welcome, we are all here to learn. You can: try to in
 
 
 ### Contributors
-![satharus](https://avatars1.githubusercontent.com/u/29730368?s=64&v=4#contributor) **Satharus** Ahmed Elmayyah
+![satharus](https://avatars1.githubusercontent.com/u/29730368?s=64&v=4) **Satharus** Ahmed Elmayyah
 
-
-img[src~="contributor"] {
-    border-radius: 100%;
-}
