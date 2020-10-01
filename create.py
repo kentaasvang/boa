@@ -7,7 +7,8 @@ import sys
 import datetime
 import getpass
 
-default_project_dir = expanduser("~") + "/PythonProjects"
+
+default_project_dir = os.getcwd()
 command = sys.argv[1]
 project_name = sys.argv[2]
 project_root = default_project_dir + "/" + project_name
