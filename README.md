@@ -24,5 +24,5 @@ This will create your project at `$HOME/PythonProjects/<project-name>/`
 All contributions are very welcome, we are all here to learn. You can: try to install and run the project, write issues or report bugs, problems or just general criticism. Any feedback is also welcome! As well as requests or suggestions for improvements. You can also tackle some of the issues that are already registered and submit pull requests. All contributions no matter how small will be credited
 
 
-### Contributers
+### Contributors
 ![satharus](https://avatars1.githubusercontent.com/u/29730368?s=64&v=4) **Satharus** Ahmed Elmayyah
