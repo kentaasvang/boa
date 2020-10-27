@@ -7,10 +7,12 @@ import sys
 import datetime
 import getpass
 
+from argparse import ArgumentParser
+import settings
+
 
 default_project_dir = os.getcwd()
-command = sys.argv[1]
-project_name = sys.argv[2]
+project_name = parse_command_line_arguments()
 project_root = default_project_dir + "/" + project_name
 current_year = datetime.datetime.now().year
 current_user = getpass.getuser()
@@ -163,4 +165,20 @@ def create():
     create_project_files_and_folders()
 
 
-create()
+def parse_command_line_arguments() -> str:
+    """ 
+    Parses command line arguments and returns project name 
+    """
+    parser = ArgumentParser(settings.DESCRIPTION)
+    parser.add_argument(
+        "name", 
+        type=str,
+        help="The name of the project"
+    )
+
+    return parser.parse_args().name
+
+
+if __name__ == "__main__":
+    create()
+
