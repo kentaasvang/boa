@@ -42,11 +42,11 @@ def create_project_files_and_folders(root: str, files: Dict[str, str]) -> None:
     create_file(root, ".gitignore", "# vim files\n*.swp\n*.swo\n# python cache\n__pycache__/\n# prod-files\n.env") 
 
 
-def git_initial_commit() -> None:
+def git_init(root: str) -> None:
     """
     Sets up git in project root
     """
-    os.system("git init --quiet && git add . && git commit --quiet -m \"initial commit\"");
+    os.system(f"git init {root} --quiet");
 
 
 
@@ -113,5 +113,5 @@ def boa() -> None:
 
     create_project_folder(project_name)
     create_project_files_and_folders(project_root, files)
-    git_initial_commit()
+    git_init(project_root)
 
