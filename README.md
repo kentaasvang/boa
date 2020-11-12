@@ -1,3 +1,5 @@
+![Boa Logo](/img/boa.png)
+
 ![issues](https://img.shields.io/github/issues/kentaasvang/python_create) ![pythonversion](https://img.shields.io/badge/python-%3E%3D%203.8-blue) ![platforms](https://img.shields.io/badge/platform-macos-lightgrey)
 
 # Create
