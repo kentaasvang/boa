@@ -1,17 +1,17 @@
 
 install:
-	cp create.py ~/.my_binaries/bin/create
+	cp boa.py ~/.my_binaries/bin/boa
 	cp templates.py ~/.my_binaries/bin/
 	cp settings.py ~/.my_binaries/bin/
-	chmod +x ~/.my_binaries/bin/create
+	chmod +x ~/.my_binaries/bin/boa
 
 uninstall:
 	rm ~/.my_binaries/bin/templates.py
 	rm ~/.my_binaries/bin/settings.py
-	rm ~/.my_binaries/bin/create
+	rm ~/.my_binaries/bin/boa
 
 test:
-	python3 create.py my_test_project
+	python3 boa.py my_test_project
 
 clean:
 	rm -rf my_test_project
