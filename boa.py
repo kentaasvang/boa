@@ -79,7 +79,7 @@ def template_engine(template: str, data: dict) -> str:
     return template
 
 
-def create() -> None:
+def boa() -> None:
     """
     Program entrypoint
     """
@@ -117,5 +117,5 @@ def create() -> None:
 
 
 if __name__ == "__main__":
-    create()
+    boa()
 
