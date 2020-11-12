@@ -17,9 +17,9 @@ For now you have to first setup the `$HOME/.my_binaries/bin`-directory and expor
 ### Usage
 To create a new project run the command:
 ```terminal
-$ boa python <project-name>
+$ boa <project-name>
 ```
-This will create your project at `$HOME/PythonProjects/<project-name>/`
+This will create your project at your current working directory
 
 
 ### Contributing
