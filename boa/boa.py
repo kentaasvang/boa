@@ -115,7 +115,3 @@ def boa() -> None:
     create_project_folder(project_name)
     create_project_files_and_folders(project_root, files)
 
-
-if __name__ == "__main__":
-    boa()
-
