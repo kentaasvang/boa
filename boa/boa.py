@@ -39,7 +39,10 @@ def create_project_files_and_folders(root: str, files: Dict[str, str]) -> None:
     # Create Makefile
     create_file(root, "Makefile", "test:\n\tpython3 tests.py")
     # Create gitignore
-    create_file(root, ".gitignore", "# vim files\n*.swp\n*.swo\n# python cache\n__pycache__/\n# prod-files\n.env") 
+    create_file(
+        root, 
+        ".gitignore", 
+        "# vim files\n*.swp\n*.swo\n# python cache\n__pycache__/\n# prod-files\n.env") 
 
 
 def git_init(root: str) -> None:
@@ -52,14 +55,13 @@ def git_init(root: str) -> None:
 
 def parse_command_line_arguments() -> str:
     """ 
-    Parses command line arguments and returns project name 
+    Parses command line arguments and returns the project name
     """
     parser = ArgumentParser(settings.DESCRIPTION)
     parser.add_argument(
         "name", 
         type=str,
-        help="The name of the project"
-    )
+        help="The name of the project")
 
     return parser.parse_args().name
 
@@ -104,11 +106,11 @@ def boa() -> None:
         os.mkdir(default_project_dir)
 
     files = {
-        "LICENSE": LICENSE, 
-        "setup.py": SETUP, 
-        "settings.py": SETTINGS, 
+        "LICENSE":            LICENSE, 
+        "setup.py":           SETUP, 
+        "settings.py":        SETTINGS, 
         f"{project_name}.py": MAIN, 
-        "tests.py": TEST, 
+        "tests.py":           TEST, 
     }
 
     create_project_folder(project_name)
