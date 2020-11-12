@@ -1,7 +1,3 @@
-
-.PHONY: install, uninstall, build, clean, test, run, help
-
-
 help:
 	@echo "there is no help yet"
 
