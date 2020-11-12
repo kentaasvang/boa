@@ -46,7 +46,6 @@ def git_initial_commit() -> None:
     """
     Sets up git in project root
     """
-    print("git init and commit!...")
     os.system("git init --quiet && git add . && git commit --quiet -m \"initial commit\"");
 
 
@@ -114,4 +113,5 @@ def boa() -> None:
 
     create_project_folder(project_name)
     create_project_files_and_folders(project_root, files)
+    git_initial_commit()
 
