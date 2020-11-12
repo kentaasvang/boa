@@ -1,4 +1,4 @@
-![Boa Logo](https://github.com/kentaasvang/python_create/img/boa.png)
+![Boa Logo](https://raw.githubusercontent.com/kentaasvang/python_create/master/img/boa.png)
 
 ![issues](https://img.shields.io/github/issues/kentaasvang/python_create) ![pythonversion](https://img.shields.io/badge/python-%3E%3D%203.8-blue) ![platforms](https://img.shields.io/badge/platform-macos-lightgrey)
 
@@ -11,7 +11,10 @@ The project-layout is inspired by [this document](https://docs.python-guide.org/
 
 
 ### Installing
-For now you have to first setup the `$HOME/.my_binaries/bin`-directory and export it to your $PATH. Then you clone the project from git, cd into the cloned project and run `make install`
+Install `boa` with **pip**
+```terminal
+>>> pip install pboa
+```
 
 
 ### Usage
