@@ -1,6 +1,6 @@
-![Boa Logo](https://raw.githubusercontent.com/kentaasvang/python_create/master/img/boa.png)
+![Boa Logo](https://raw.githubusercontent.com/kentaasvang/boa/master/img/boa.png)
 
-![issues](https://img.shields.io/github/issues/kentaasvang/python_create) ![pythonversion](https://img.shields.io/badge/python-%3E%3D%203.8-blue) ![platforms](https://img.shields.io/badge/platform-macos-lightgrey)
+![issues](https://img.shields.io/github/issues/kentaasvang/boa) ![platforms](https://img.shields.io/badge/platform-macos-lightgrey) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pboa) ![PyPI](https://img.shields.io/pypi/v/pboa)
 
 # Boa - a python project manager
 boa is a simple CLI for python that makes it easy to set up new python-projects. It aims to make a clean project-layout with sensible defaults, without assuming any dependecies what-so-ever. 
