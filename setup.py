@@ -6,7 +6,7 @@ with open("README.md", "r") as file_handler:
 
 setup(
     name="pboa",
-    version="0.0.1",
+    version="0.0.3",
     author="Kent Martin Åsvang",
     author_email="kentaasvang@gmail.com",
     long_description=long_description,
