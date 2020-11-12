@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-from os.path import expanduser
-from os import path, mkdir
+
 import os
 import sys
 import datetime
 import getpass
 
 from argparse import ArgumentParser
-import settings
-import templates
+from os import (path, mkdir)
+
+from boa import (settings, templates)
 
 from typing import Dict
 
