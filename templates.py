@@ -22,15 +22,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE."""
 
 
-CONTEXT = """\"\"\"Fixing the import path for importing modules from root \"\"\"
-
-import os, sys
-sys.path.insert(
-    0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-)
-"""
-
-
 SETUP =	"""from setuptools import setup, find_packages
 
 with open("README.md", "r") as file_handler:
@@ -85,7 +76,6 @@ if __name__ == "__main__":
 """
 
 TEST = """import unittest
-import context
 import (( name ))
 
 class Test(( name ))(unittest.TestCase):
