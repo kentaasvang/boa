@@ -1,3 +1,4 @@
-# vim-fiels
+__pycache__/
 *.swp
 *.swo
+.DS_Store

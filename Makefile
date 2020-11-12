@@ -6,20 +6,18 @@ help:
 	@echo "there is no help yet"
 
 install:
-	cp create.sh ~/.my_binaries/bin/create
-	chmod +x ~/.my_binaries/bin/create
+	cp boa.py ~/.my_binaries/bin/boa
+	cp templates.py ~/.my_binaries/bin/
+	cp settings.py ~/.my_binaries/bin/
+	chmod +x ~/.my_binaries/bin/boa
 
 uninstall:
-	rm ~/.my_binaries/bin/create
+	rm ~/.my_binaries/bin/templates.py
+	rm ~/.my_binaries/bin/settings.py
+	rm ~/.my_binaries/bin/boa
 
-build: clean
-	cp src/create.py dist/create
-	chmod +x dist/create
-	
+test:
+	python3 boa.py my_test_project
+
 clean:
-	rm -rf dist/*
-
-run: build
-	@printf "\nProgram output: \n___________\n\n"
-	@./dist/create new somethingelse
-
+	rm -rf my_test_project
