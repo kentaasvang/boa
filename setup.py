@@ -11,8 +11,7 @@ setup(
     author_email="kentaasvang@gmail.com",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/kentaasvang/python_create",
-    #py_modules=["boa", "settings", "templates"],
+    url="https://github.com/kentaasvang/boa",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3.8",
