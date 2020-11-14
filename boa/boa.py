@@ -6,8 +6,7 @@ import datetime
 import getpass
 
 from argparse import ArgumentParser
-from os import (path, mkdir)
-
+from os import (path, mkdir) 
 from boa import (settings, templates)
 
 from typing import Dict
@@ -99,6 +98,10 @@ def boa(p_name: str = None, test: bool = False, p_root: str = "") -> None:
         default_project_dir = p_root
         project_name = p_name
         project_root = default_project_dir / p_name
+    elif p_name:
+        default_project_dir = os.getcwd()
+        project_name = p_name
+        project_root = default_project_dir + "/" + project_name
     else:
         default_project_dir = os.getcwd()
         project_name = parse_command_line_arguments()
