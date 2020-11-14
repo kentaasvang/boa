@@ -18,11 +18,11 @@ def create_file(directory: str, name: str, content: str) -> None:
     Creates a file in the given directory and fills with given content
     """
     with open(f"{directory}/{name}", "w") as f:
-        f.write(f"{content}\n")
+        f.write(f"{content}")
 
 
 def create_project_folder(project_root: str) -> None:
-    """
+    """ 
     Creates the project root folder
     """
     if not path.isdir(project_root):
@@ -77,16 +77,33 @@ def template_engine(template: str, data: dict) -> str:
     """
     for key, value in data.items():
         template = template.replace(f"(( {key} ))", str(value))
+        template = template.replace(f"(({key}))", str(value))
     return template
 
 
-def boa() -> None:
+def boa(p_name: str, test: bool = False, p_root: str = "") -> None:
     """
     Program entrypoint
+
+    Note:
+        All parameters in this function are the result of a quick
+        hack to be able to run tests. Should be refactored in the future
     """
-    default_project_dir = os.getcwd()
-    project_name = parse_command_line_arguments()
-    project_root = default_project_dir + "/" + project_name
+
+    # This if-statement is a quick hack to be able to run 
+    # a test on the boa-function
+    if test:
+        assert p_name
+        assert p_root is not ""
+
+        default_project_dir = p_root
+        project_name = p_name
+        project_root = default_project_dir / p_name
+    else:
+        default_project_dir = os.getcwd()
+        project_name = parse_command_line_arguments()
+        project_root = default_project_dir + "/" + project_name
+
     current_year = datetime.datetime.now().year
     current_user = getpass.getuser()
 
@@ -112,8 +129,14 @@ def boa() -> None:
         f"{project_name}.py": MAIN, 
         "tests.py":           TEST, 
     }
+   
+    # This if-statement is a quick hack to be able to run 
+    # a test on the boa-function
+    if test:
+        create_project_folder(project_root)
+    else:
+        create_project_folder(project_name)
 
-    create_project_folder(project_name)
     create_project_files_and_folders(project_root, files)
     git_init(project_root)
 
