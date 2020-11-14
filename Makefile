@@ -1,6 +1,10 @@
 help:
 	@echo "there is no help yet"
 
+test:
+	coverage run -m pytest -v
+	coverage html
+
 install:
 	pip3 install --editable .
 
