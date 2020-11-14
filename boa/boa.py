@@ -94,7 +94,7 @@ def boa(p_name: str, test: bool = False, p_root: str = "") -> None:
     # a test on the boa-function
     if test:
         assert p_name
-        assert p_root is not ""
+        assert p_root != ""
 
         default_project_dir = p_root
         project_name = p_name
