@@ -23,4 +23,4 @@ def make(command):
         import make
         getattr(make, command)()
     except AttributeError as attribute_error:
-        click.echo("There is no command in make.py with the name %s" % command)
+        click.echo("The command `%s` does not exist in make.py" % command)
