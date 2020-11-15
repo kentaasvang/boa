@@ -1,5 +1,5 @@
 import click
-from boa.boa import boa
+from boa import boa
 
 
 @click.group()
@@ -13,4 +13,4 @@ def new(name):
     """
     Creates a new project NAME
     """
-    boa(p_name=name)
+    boa.new(p_name=name)
