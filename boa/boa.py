@@ -80,7 +80,7 @@ def template_engine(template: str, data: dict) -> str:
     return template
 
 
-def boa(p_name: str = None, test: bool = False, p_root: str = "") -> None:
+def new(p_name: str = None, test: bool = False, p_root: str = "") -> None:
     """
     Program entrypoint
 
