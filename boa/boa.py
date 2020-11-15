@@ -36,7 +36,7 @@ def create_project_files_and_folders(root: str, files: Dict[str, str]) -> None:
         create_file(root, name, content)
 
     # Create Makefile
-    create_file(root, "Makefile", "test:\n\tpython3 tests.py")
+    create_file(root, "make.py", "import os\n\ndef test():\n\tos.system('python3 tests.py')")
     # Create gitignore
     create_file(
         root, 

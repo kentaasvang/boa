@@ -84,7 +84,7 @@ def test_boa(tmpdir):
     assert path.isdir(temp_dir / "my_project" / ".git")
     assert path.isfile(temp_dir / "my_project" / "LICENSE")
     assert path.isfile(temp_dir / "my_project" / "my_project.py")
-    assert path.isfile(temp_dir / "my_project" / "Makefile")
+    assert path.isfile(temp_dir / "my_project" / "make.py")
     assert path.isfile(temp_dir / "my_project" / "tests.py")
     assert path.isfile(temp_dir / "my_project" / "setup.py")
     assert path.isfile(temp_dir / "my_project" / "settings.py")
