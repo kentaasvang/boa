@@ -1,4 +1,7 @@
+import os
+import sys
 import click
+
 from boa import boa
 
 
@@ -20,7 +23,11 @@ def new(name):
 @click.argument("command")
 def make(command):
     try:
-        import make
-        getattr(make, command)()
+        with open("make.py", "r") as file_handler:
+            make = file_handler.read()
+            exec(make, globals())
+            globals()[command]()
     except AttributeError as attribute_error:
+        click.echo("The command `%s` does not exist in make.py" % command)
+    except KeyError as key_error:
         click.echo("The command `%s` does not exist in make.py" % command)
