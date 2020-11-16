@@ -11,6 +11,5 @@ def install():
 
 
 def pypi():
-    os.system("rm ./dist/*")
     os.system("python3 setup.py sdist bdist_wheel")
     os.system("python3 -m twine upload --skip-existing dist/* --verbose")

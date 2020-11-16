@@ -20,7 +20,7 @@ Install `boa` with **pip**
 ### Usage
 To create a new project run the command:
 ```terminal
-$ boa <project-name>
+$ boa new <project-name>
 ```
 This will create your project at your current working directory
 
