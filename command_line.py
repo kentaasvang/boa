@@ -22,12 +22,10 @@ def new(name):
 @cli.command()
 @click.argument("command")
 def make(command):
+    """
+    Runs the method named COMMAND located in make.py
+    """
     try:
-        with open("make.py", "r") as file_handler:
-            make = file_handler.read()
-            exec(make, globals())
-            globals()[command]()
-    except AttributeError as attribute_error:
-        click.echo("The command `%s` does not exist in make.py" % command)
-    except KeyError as key_error:
-        click.echo("The command `%s` does not exist in make.py" % command)
+        boa.run_make_command(command)
+    except Exception as e:
+        click.echo(e)

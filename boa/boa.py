@@ -12,6 +12,19 @@ from boa import (settings, templates)
 from typing import Dict
 
 
+def run_make_command(command: str) -> None:
+    """
+    Runs the method COMMAND in the make.py module if it exists
+    """
+    try:
+        with open("make.py", "r") as file_handler:
+            make = file_handler.read()
+            exec(make, globals())
+            globals()[command]()
+    except KeyError as key_error:
+        raise KeyError("The command `%s` does not exist in make.py" % command)
+
+
 def create_file(directory: str, name: str, content: str) -> None:
     """
     Creates a file in the given directory and fills with given content
