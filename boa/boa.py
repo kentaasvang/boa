@@ -8,6 +8,7 @@ import getpass
 from argparse import ArgumentParser
 from os import (path, mkdir) 
 from boa import (settings, templates)
+from pathlib import Path
 
 from typing import Dict
 
@@ -93,66 +94,45 @@ def template_engine(template: str, data: dict) -> str:
     return template
 
 
-def new(p_name: str = None, test: bool = False, p_root: str = "") -> None:
-    """
-    Program entrypoint
+def new(name, project_directory=None):
+    main_module = Path(f"{name}.py")
+    
+    # if project directory is not specified
+    # we create a folder with the projects name
+    if not project_directory:
+        project_directory = Path(name)
+        project_directory.mkdir()
 
-    Note:
-        All parameters in this function are the result of a quick
-        hack to be able to run tests. Should be refactored in the future
-    """
-
-    # This if-statement is a quick hack to be able to run 
-    # a test on the boa-function
-    if test:
-        assert p_name
-        assert p_root != ""
-
-        default_project_dir = p_root
-        project_name = p_name
-        project_root = default_project_dir / p_name
-    elif p_name:
-        default_project_dir = os.getcwd()
-        project_name = p_name
-        project_root = default_project_dir + "/" + project_name
+    # if project directory is not current working directory
+    # we create the main module within the project dir
+    # else we create it without project folder
+    if str(project_directory) != ".":
+        (project_directory / main_module).touch()
     else:
-        default_project_dir = os.getcwd()
-        project_name = parse_command_line_arguments()
-        project_root = default_project_dir + "/" + project_name
+        main_module.touch()
 
-    current_year = datetime.datetime.now().year
-    current_user = getpass.getuser()
 
-    LICENSE = template_engine(
-        templates.LICENSE, {"name": project_name, "year": current_year})
 
-    SETUP = template_engine(
-        templates.SETUP, {"name": project_name, "user": current_user})
 
-    SETTINGS = templates.SETTINGS
 
-    MAIN = templates.MAIN
 
-    TEST = template_engine(templates.TEST, {"name": project_name})
 
-    if not path.isdir(default_project_dir):
-        os.mkdir(default_project_dir)
 
-    files = {
-        "LICENSE":            LICENSE, 
-        "setup.py":           SETUP, 
-        "settings.py":        SETTINGS, 
-        f"{project_name}.py": MAIN, 
-        "tests.py":           TEST, 
-    }
-   
-    # This if-statement is a quick hack to be able to run 
-    # a test on the boa-function
-    if test:
-        create_project_folder(project_root)
-    else:
-        create_project_folder(project_name)
 
-    create_project_files_and_folders(project_root, files)
-    git_init(project_root)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

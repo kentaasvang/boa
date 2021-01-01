@@ -1,120 +1,35 @@
+import sys, os
 import pytest
 from os import path
 
-from boa import boa
+import boa
 
 
-class TestTemplateEngine:
-    
-    def test_template_engine_basic(self):
-        before = "hello, (( key ))"
-        expected = "hello, world"
-        content = { 
-            "key": "world" 
-        }
-        assert boa.template_engine(before, content) == expected
-    
-    def test_template_engine_wo_whitespace(self):
-        before = "hello, ((key))"
-        expected = "hello, world"
-        content = { 
-            "key": "world" 
-        }
-        assert boa.template_engine(before, content) == expected
+TEMPORARY_TEST_DIRECTORY = "root"
 
 
-class TestCreateFile:
+def test_default_behaviour(tmpdir):
+    test_directory = tmpdir.mkdir(TEMPORARY_TEST_DIRECTORY)
+    os.chdir(test_directory)
+    project_name = "default_project"
+    boa.new(project_name)
 
-    def test_creating_file(self, tmpdir):
-        temp_dir = tmpdir.mkdir("root")
-        boa.create_file(temp_dir, "filename", "filecontent")
-        assert len(temp_dir.listdir()) == 1
+    # check that project directory is created
+    assert path.isdir(project_name), \
+        "folder is missing"
 
-    def test_file_content(self, tmpdir):
-        temp_dir = tmpdir.mkdir("root")
-        boa.create_file(temp_dir, "filename", "filecontent")
+    # check that the projects main module is created
+    assert path.isfile(f"{project_name}/{project_name}.py"), \
+        "main module is missing"
+
+def test_default_behaviour_with_cwd_as_project_dir(tmpdir):
+    test_directory = tmpdir.mkdir(TEMPORARY_TEST_DIRECTORY)
+    os.chdir(test_directory)
+    project_name = "default_project"
+    boa.new(project_name, ".")
+
+    # check that main module is created at cwd
+    assert path.isfile(f"{project_name}.py"), \
+        "Main module is missing"
         
-        with open(temp_dir / "filename", "r") as file_handler:
-            content = file_handler.read()
-
-        assert content == "filecontent"
-
-
-def test_create_project_folder(tmpdir):
-    temp_dir = tmpdir.mkdir("root")
-    boa.create_project_folder(temp_dir / "my_folder")
-    assert len(temp_dir.listdir()) == 1
-    assert path.isdir(temp_dir / "my_folder")
-
-
-def test_create_project_files_and_folders(tmpdir):
-    temp_dir = tmpdir.mkdir("root")
-
-    files: Dict[str, str] = {
-        "file1": "content1",
-        "file2": "content2"
-    }
-
-    boa.create_project_files_and_folders(temp_dir, files)
-    assert len(temp_dir.listdir()) == 4
-    assert path.isfile(temp_dir / "file1")
-    assert path.isfile(temp_dir / "file2")
-
-    with open(temp_dir / "file1", "r") as file_handler:
-        assert file_handler.read() == "content1"
-    
-    with open(temp_dir / "file2", "r") as file_handler:
-        assert file_handler.read() == "content2"
-
-
-def test_git_init(tmpdir):
-    temp_dir = tmpdir.mkdir("root")
-    boa.git_init(temp_dir)
-
-    assert path.isdir(temp_dir / ".git")
-
-
-def test_boa(tmpdir):
-    temp_dir = tmpdir.mkdir("root")
-    boa.new("my_project", True, temp_dir)
-
-    # check that all files and folders are produced
-    assert len(temp_dir.listdir()) == 1
-    assert path.isdir(temp_dir / "my_project")
-    assert path.isdir(temp_dir / "my_project" / ".git")
-    assert path.isfile(temp_dir / "my_project" / "LICENSE")
-    assert path.isfile(temp_dir / "my_project" / "my_project.py")
-    assert path.isfile(temp_dir / "my_project" / "make.py")
-    assert path.isfile(temp_dir / "my_project" / "tests.py")
-    assert path.isfile(temp_dir / "my_project" / "setup.py")
-    assert path.isfile(temp_dir / "my_project" / "settings.py")
-    assert path.isfile(temp_dir / "my_project" / ".gitignore")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
