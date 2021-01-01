@@ -22,6 +22,7 @@ def test_default_behaviour(tmpdir):
     assert path.isfile(f"{project_name}/{project_name}.py"), \
         "main module is missing"
 
+
 def test_default_behaviour_with_cwd_as_project_dir(tmpdir):
     test_directory = tmpdir.mkdir(TEMPORARY_TEST_DIRECTORY)
     os.chdir(test_directory)
@@ -31,5 +32,4 @@ def test_default_behaviour_with_cwd_as_project_dir(tmpdir):
     # check that main module is created at cwd
     assert path.isfile(f"{project_name}.py"), \
         "Main module is missing"
-        
 

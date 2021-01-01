@@ -65,7 +65,6 @@ def git_init(root: str) -> None:
     os.system(f"git init {root} --quiet");
 
 
-
 def parse_command_line_arguments() -> str:
     """ 
     Parses command line arguments and returns the project name
@@ -110,29 +109,4 @@ def new(name, project_directory=None):
         (project_directory / main_module).touch()
     else:
         main_module.touch()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
