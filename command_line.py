@@ -12,11 +12,12 @@ def cli():
 
 @cli.command()
 @click.argument("name")
-def new(name):
+@click.argument("project_dir", required=False, default=None)
+def new(name, project_dir):
     """
     Creates a new project NAME
     """
-    boa.new(p_name=name)
+    boa.new(name, project_dir)
 
 
 @cli.command()
