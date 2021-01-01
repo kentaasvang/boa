@@ -21,6 +21,6 @@ setup(
         "Operating System :: OS Independent"],
     entry_points= {
         # "console_scripts": ["boa=boa.boa:boa"]},
-        "console_scripts": ["boa=command_line:cli"]},
+        "console_scripts": ["boa=cli:cli"]},
     python_requires=">=3.8"
 )
