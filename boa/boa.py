@@ -58,13 +58,6 @@ def create_project_files_and_folders(root: str, files: Dict[str, str]) -> None:
         "# vim files\n*.swp\n*.swo\n# python cache\n__pycache__/\n# prod-files\n.env") 
 
 
-def git_init(root: str) -> None:
-    """
-    Sets up git in project root
-    """
-    os.system(f"git init {root} --quiet");
-
-
 def parse_command_line_arguments() -> str:
     """ 
     Parses command line arguments and returns the project name
@@ -101,12 +94,20 @@ def new(name, project_directory=None):
     if not project_directory:
         project_directory = Path(name)
         project_directory.mkdir()
+        _git_init(project_directory)
 
     # if project directory is not current working directory
     # we create the main module within the project dir
     # else we create it without project folder
     if str(project_directory) != ".":
         (project_directory / main_module).touch()
+        _git_init(project_directory)
     else:
         main_module.touch()
 
+
+def _git_init(root):
+    """
+    Sets up git in project root
+    """
+    os.system(f"git init {root} --quiet");
