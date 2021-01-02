@@ -6,8 +6,11 @@ test:
 		coverage html; \
 	)
 
-install:
+install: remove
 	(source venv/bin/activate; pip install --editable .)
+
+remove:
+	(source venv/bin/activate; pip uninstall pboa --yes;)
 
 publish:
 	python3 setup.py sdist bdist_wheel
