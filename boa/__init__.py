@@ -1,1 +1,1 @@
-from .boa import new, _git_init
+from .boa import new, _git_init, gitignore

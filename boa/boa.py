@@ -107,7 +107,27 @@ def new(name, project_directory=None):
 
 
 def _git_init(root):
-    """
-    Sets up git in project root
-    """
+    # Sets up git in project root
     os.system(f"git init {root} --quiet");
+
+
+def gitignore(root=None):
+
+    if not root:
+        root = Path.cwd()
+
+    gitignore_file = root / Path(".gitignore")
+    gitignore_file.touch()
+    
+
+
+
+
+
+
+
+
+
+
+
+

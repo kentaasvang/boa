@@ -4,6 +4,8 @@ from os import path
 
 import boa
 
+from pathlib import Path
+
 
 TEMPORARY_TEST_DIRECTORY = "root"
 
@@ -48,3 +50,28 @@ def test_git_init(tmpdir):
 def _find_git_folder(folder):
     return True if path.isdir(folder + "/.git") else False
 
+
+def test_new_gitignore_cwd(tmpdir):
+    # check that function creates a .gitignore file in cwd
+    test_directory = tmpdir.mkdir(TEMPORARY_TEST_DIRECTORY)
+    os.chdir(test_directory)
+    boa.gitignore()
+
+    assert path.isfile(test_directory + "/.gitignore"), \
+        ".gitignore file is missing"
+
+
+def test_new_gitignore_in_specified_path(tmpdir):
+    # check that function creates a .gitignore file in specified path
+    test_directory = tmpdir.mkdir(TEMPORARY_TEST_DIRECTORY)
+    os.chdir(test_directory)
+
+    # folder to initialize git in
+    new_folder = Path("new_folder")
+    new_folder = Path(test_directory) / new_folder
+    new_folder.mkdir()
+
+    boa.gitignore(new_folder)
+
+    assert path.isfile(test_directory + "/new_folder/.gitignore"), \
+        ".gitignore file is missing"
