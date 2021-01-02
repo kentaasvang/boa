@@ -30,3 +30,13 @@ def make(command):
         boa.run_make_command(command)
     except Exception as e:
         click.echo(e)
+
+
+@cli.command()
+@click.argument("root", default=None, required=False)
+def gitignore(root):
+    """
+    creates a python gitignore file in the given root
+    """
+    boa.gitignore(root)
+
