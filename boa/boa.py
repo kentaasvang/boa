@@ -109,4 +109,3 @@ def new(path):
 
 if __name__ == "__main__":
     new("var/www/user/name")
-
