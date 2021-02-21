@@ -1,18 +1,15 @@
 #!/usr/bin/env python3
 
 import os
-import sys
 import datetime
 import getpass
 
 from argparse import ArgumentParser
-from os import (path, mkdir) 
+from os import path
 from boa import (settings, templates)
 
-from typing import Dict
 
-
-def run_make_command(command: str) -> None:
+def run_make_command(command):
     """
     Runs the method COMMAND in the make.py module if it exists
     """
@@ -25,7 +22,7 @@ def run_make_command(command: str) -> None:
         raise KeyError("The command `%s` does not exist in make.py" % command)
 
 
-def create_file(directory: str, name: str, content: str) -> None:
+def create_file(directory, name, content):
     """
     Creates a file in the given directory and fills with given content
     """
@@ -33,7 +30,7 @@ def create_file(directory: str, name: str, content: str) -> None:
         f.write(f"{content}")
 
 
-def create_project_folder(project_root: str) -> None:
+def create_project_folder(project_root):
     """ 
     Creates the project root folder
     """
@@ -41,7 +38,7 @@ def create_project_folder(project_root: str) -> None:
         os.mkdir(project_root)
 
 
-def create_project_files_and_folders(root: str, files: Dict[str, str]) -> None:
+def create_project_files_and_folders(root, files):
     """
     Creates all the project files that are needed
     """
@@ -57,15 +54,14 @@ def create_project_files_and_folders(root: str, files: Dict[str, str]) -> None:
         "# vim files\n*.swp\n*.swo\n# python cache\n__pycache__/\n# prod-files\n.env") 
 
 
-def git_init(root: str) -> None:
+def git_init(root):
     """
     Sets up git in project root
     """
-    os.system(f"git init {root} --quiet");
+    os.system(f"git init {root} --quiet")
 
 
-
-def parse_command_line_arguments() -> str:
+def parse_command_line_arguments():
     """ 
     Parses command line arguments and returns the project name
     """
@@ -78,7 +74,7 @@ def parse_command_line_arguments() -> str:
     return parser.parse_args().name
 
 
-def template_engine(template: str, data: dict) -> str:
+def template_engine(template, data):
     """
     Takes a template and a dict and insert the values
     in the dict to the corresponding keys in a template
@@ -93,7 +89,7 @@ def template_engine(template: str, data: dict) -> str:
     return template
 
 
-def new(p_name: str = None, test: bool = False, p_root: str = "") -> None:
+def new(p_name, test, p_root):
     """
     Program entrypoint
 
