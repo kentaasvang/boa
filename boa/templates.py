@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE."""
 
 
-SETUP =	"""from setuptools import setup, find_packages
+SETUP = """from setuptools import setup, find_packages
 
 with open("README.md", "r") as file_handler:
     long_description = file_handler.read()
