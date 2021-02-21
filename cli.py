@@ -14,7 +14,7 @@ def new(name):
     """
     Creates a new project NAME
     """
-    boa.new(p_name=name)
+    boa.new(path=name)
 
 
 @cli.command()
