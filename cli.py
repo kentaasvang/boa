@@ -1,5 +1,3 @@
-import os
-import sys
 import click
 
 from boa import boa
