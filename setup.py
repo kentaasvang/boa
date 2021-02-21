@@ -7,19 +7,21 @@ with open("README.md", "r") as file_handler:
 
 setup(
     name="pboa",
-    version="0.0.2a",
+    version="0.0.3a",
     author="Kent Martin Åsvang",
     author_email="kentaasvang@gmail.com",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/kentaasvang/boa",
-    py_modules=["command_line"],
+    py_modules=["cli"],
     packages=find_packages(),
     install_requires=["Click"],
     classifiers=[
         "Programming Language :: Python :: 3.8",
         "Environment :: Console",
         "Operating System :: OS Independent"],
-    entry_points={"console_scripts": ["boa=cli:cli"]},
+    entry_points={
+        "console_scripts": ["boa=cli:cli"]
+    },
     python_requires=">=3.8"
 )
