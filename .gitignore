@@ -1,6 +1,9 @@
-__pycache__/
+# vim
 *.swp
 *.swo
+
+# python
+__pycache__/
 .DS_Store
 dist/
 build/
